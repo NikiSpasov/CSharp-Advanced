@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SomeTests
 {
-    class SomeTests
+    public class SomeTests
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
         }

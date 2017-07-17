@@ -24,11 +24,11 @@ public static class StudentsRepository
 
     public static void ReadData()
     {
-        
+
         string input = Console.ReadLine();
         while (!string.IsNullOrEmpty(input))
         {
-            string[] tokens = input.Split(new []{' ', ',', '\r', '\n', '\t'}, 
+            string[] tokens = input.Split(new[] { ' ', ',', '\r', '\n', '\t' },
                 StringSplitOptions.RemoveEmptyEntries);
             string course = tokens[0];
             string student = tokens[1];
@@ -57,18 +57,16 @@ public static class StudentsRepository
             OutputWriter.DisplayException(ExeptionMessages.DataNotInitializedExceptionMessage);
             return false;
         }
-        else
+
+        if (studentsByCourse.ContainsKey(courseName))
         {
-            if (studentsByCourse.ContainsKey(courseName))
-            {
-                return true;
-            }
-            else
-            {
-                OutputWriter.DisplayException(ExeptionMessages.InexistingCourseInDataBase);
-            }
-            return false;
+            return true;
         }
+
+        OutputWriter.DisplayException(ExeptionMessages.InexistingCourseInDataBase);
+
+        return false;
+
     }
 
     private static bool IsQueryForStudentPossible(string courseName, string studentUserName)
@@ -77,10 +75,9 @@ public static class StudentsRepository
         {
             return true;
         }
-        else
-        {
+
             OutputWriter.DisplayException(ExeptionMessages.InexistingStudentInDataBase);
-        }
+        
         return false;
 
     }

@@ -19,7 +19,7 @@ public static class IOManager
             string currentPath = subFolders.Dequeue();
             identation = currentPath.Split('\\').Length - initialIdentation;
             path = currentPath;
-            foreach (var dir in Directory.GetDirectories(currentPath))
+            foreach (var dir in Directory.GetDirectories(path))
             {
                 WriteMessageOnNewLine(string.Format("-{0}{1}", new string('-', identation), dir));
                 subFolders.Enqueue(dir);
